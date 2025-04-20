@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Martin</title>
+    <meta name="description" content="Martin es un web proxy customizado y basado en Ultraviolet" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+     <!-- Favicon -->
+     <link rel="icon" type="image/png" href="martin.png" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body, html {
+        height: 100%;
+        font-family: 'Raleway', sans-serif;
+        color: #ffffff;
+        overflow: hidden;
+      }
+
+      #bg-video {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+        object-fit: cover;
+        filter: brightness(0.4) blur(2px);
+      }
+
+      .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .logo-title {
+        display: flex;
+        align-items: center;
+        gap: -30px;
+        animation: fadeInDown 1s ease-in-out;
+      }
+
+      .logo-title img {
+        max-height: 93px;
+      }
+
+      .logo-title h1 {
+        font-family: 'Raleway', sans-serif;
+        font-size: 6rem;
+        text-shadow: 0 0 20px #7700ff;
+      }
+
+      .desc {
+        font-family: 'Raleway', sans-serif;
+        font-size: 1rem;
+        margin: 6px 0;
+        max-width: 600px;
+        animation: fadeInUp 1.2s ease-in-out;
+        opacity: 0.85;
+        margin-left: 23px;
+      }
+
+      #uv-form {
+        margin-top: 70px;
+        display: flex;
+        justify-content: center;
+        animation: fadeInUp 1.5s ease-in-out;
+        margin-left: 18px;
+      }
+
+      #uv-address {
+        width: 100%; 
+        max-width: 800px; 
+        padding: 14px 20px;
+        border-radius: 10px;
+        border: none;
+        font-size: 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        color: #fff;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+        transition: 0.3s;
+      }
+
+      #uv-address::placeholder {
+        color: #ccc;
+      }
+
+      #uv-address:focus {
+        outline: none;
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+      }
+
+      .credits-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: transparent;
+        border: 1px solid #4b1092;
+        color: #6a12b1;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: 0.3s;
+        text-decoration: none;
+      }
+
+      .credits-button:hover {
+        background: #8320f5;
+        color: #000;
+      }
+
+      .version-text {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 0.85rem;
+        color: #ffffff;
+        opacity: 0.7;
+        font-style: italic;
+      }
+
+      @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+    <script src="baremux/index.js" defer></script>
+    <script src="epoxy/index.js" defer></script>
+    <script src="uv/uv.bundle.js" defer></script>
+    <script src="uv/uv.config.js" defer></script>
+    <script src="register-sw.js" defer></script>
+    <script src="search.js" defer></script>
+    <script src="index.js" defer></script>
+  </head>
+
+  <body>
+    
+    <div class="version-text">v0.1</div>
+
+    <video autoplay muted loop id="bg-video">
+      <source src="background.mp4" type="video/mp4" />
+      Tu navegador no soporta video HTML5.
+    </video>
+
+    <div class="container">
+      <div class="logo-title">
+        <img src="martin.png" alt="Logo Martin" />
+        <h1>MARTIN</h1>
+      </div>
+      <div class="desc">
+          Martin es un web proxy customizado y basado en Ultraviolet
+      </div>
+
+      <form id="uv-form" class="flex-center">
+        <input
+          id="uv-search-engine"
+          value="https://www.google.com/search?q=%s"
+          type="hidden"
+        />
+        <input id="uv-address" type="text" placeholder="Buscar en la web" />
+      </form>
+  
+      <div class="desc left-margin">
+        <p id="uv-error"></p>
+        <pre id="uv-error-code"></pre>
+      </div>
+
+    <a href="credits.html" class="credits-button">Saber mas</a>
+  </body>
+</html>
+
+<iframe style="display: none;" id="uv-frame"></iframe>
+</body>
+</html>

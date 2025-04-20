@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Créditos</title>
+    <meta name="description" content="Página de créditos para el proxy Martin" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body, html {
+        height: 100%;
+        font-family: 'Raleway', sans-serif;
+        color: #ffffff;
+        overflow: hidden;
+      }
+
+      #bg-video {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+        object-fit: cover;
+        filter: brightness(0.4) blur(2px);
+      }
+
+      .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        animation: fadeInUp 1.5s ease-in-out; /* Animación de fade */
+      }
+
+      .logo-title {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        animation: fadeInDown 1s ease-in-out; /* Animación de fade */
+      }
+
+      .logo-title img {
+        max-height: 40px; 
+      }
+
+      .logo-title h1 {
+        font-family: 'Raleway', sans-serif;
+        font-size: 2rem; 
+        color: #ffffff;
+        text-shadow: 0 0 10px #7700ff;
+        margin: 0;
+      }
+
+      .text-center {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin: 20px auto;
+        max-width: 500px;
+        text-align: center;
+      }
+
+      .return-button {
+        margin-top: 40px;
+        background: transparent;
+        border: 2px solid #4b1092;
+        color: #6a12b1;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+        text-decoration: none;
+        position: relative;
+      }
+
+      .return-button:hover {
+        background: #8320f5;
+        color: #000;
+      }
+
+      .return-button::after {
+        content: ' >';
+        position: absolute;
+        right: -15px;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        transform: translateX(-5px);
+        font-size: 1.2rem; /* Flechita más pequeña */
+        color: #6a12b1;
+      }
+
+      .return-button:hover::after {
+        opacity: 1;
+        transform: translateX(0);
+        color: #8012e6; /* Color de la flechita cuando se activa */
+      }
+
+      .bottom-left-text {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        font-size: 0.85rem;
+        color: #ffffff;
+        opacity: 0.7;
+        font-style: italic;
+        animation: fadeInUp 1.5s ease-in-out;
+      }
+
+      @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Video de fondo -->
+    <video autoplay muted loop id="bg-video">
+      <source src="background.mp4" type="video/mp4" />
+      Tu navegador no soporta video HTML5.
+    </video>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+      <!-- Logo y título pequeños arriba a la izquierda -->
+      <div class="logo-title">
+        <img src="martin.png" alt="Logo Martin" />
+        <h1>MARTIN</h1>
+      </div>
+
+      <!-- Texto en el centro -->
+      <div class="text-center">
+        <p style="text-align: center; font-size: 1rem; line-height: 1.5; margin: 0 auto; max-width: 500px;">
+          Martin es un proxy web diseñado para facilitar el acceso a sitios web de forma sencilla y eficaz. Está basado en Ultraviolet, una tecnología que permite evitar restricciones y bloqueos, ofreciendo una navegación más libre.
+        </p>
+        <br>
+        <p style="text-align: center; font-size: 1rem; line-height: 1.5; margin: 0 auto; max-width: 500px;">
+          <strong>Interfaz personalizada:</strong> Martin cuenta con un frontend y una interfaz de usuario (UI) personalizada, creada para optimizar la experiencia del usuario con un diseño único y funcional. Su enfoque está en la eficacia y en eliminar los problemas habituales de otros proxys, como la presencia de anuncios o un rendimiento poco confiable.
+        </p>
+        <br>
+        <p style="text-align: center; font-size: 1rem; line-height: 1.5; margin: 0 auto; max-width: 500px;">
+          <strong>Propósito:</strong> El objetivo de Martin es proporcionar una herramienta confiable y efectiva para navegar, superando bloqueos habituales y restricciones de manera fácil y fluida.
+        </p>
+      </div>
+
+      <!-- Botón "Volver al proxy" con animación -->
+      <a href="index.html" class="return-button">Volver al proxy</a>
+    </div>
+
+    <!-- Texto sutil en la esquina inferior izquierda -->
+    <div class="bottom-left-text">
+      Más actualizaciones pronto. Si tienes alguna sugerencia, házmela saber y probablemente será añadida.
+    </div>
+  </body>
+</html>
